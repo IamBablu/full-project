@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import useAuthUser from "../hooks/useAuthUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -37,10 +37,14 @@ const OnboardingPage = () => {
     onboardingMutation(formState);
   };
 
+  useCallback(() => {
+    handleRandomAvatar();
+  },[formState.profilePic] );
   const handleRandomAvatar = () => {
-    // const idx = Math.floor(Math.random() * 100) + 1; // 1-100 included
+    const idx = Math.floor(Math.random() * 75) + 1; // 1-75
+    //  included
     
-    const randomAvatar = `https://i.pravatar.cc/100`;
+    const randomAvatar = `https://xsgames.co/randomusers/assets/avatars/male/${idx}.jpg`;
 
     setFormState({ ...formState, profilePic: randomAvatar });
     toast.success("Random profile picture generated!");

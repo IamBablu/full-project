@@ -19,8 +19,8 @@ export async function signup(req,res){
     if(existingUser){
         return res.status(400).json({message:"Emsil is already exists use a diffrent one"});
     }
-    // const idx = Math.floor(Math.random()*100) +1;
-    const randomAvatar = `https://i.pravatar.cc/100`;
+    const idx = Math.floor(Math.random()*75) +1;
+    const randomAvatar = `https://xsgames.co/randomusers/assets/avatars/male/${idx}.jpg`;
 
     const newUser = await User.create({
         email,

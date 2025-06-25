@@ -49,7 +49,7 @@ const HomePage = () => {
   }, [outgoingFriendReqs]);
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
+    <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-red-500 via-orange-400 to to-blue-600">
       <div className="container mx-auto space-y-10 ">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Your Friends</h2>
@@ -104,7 +104,7 @@ const HomePage = () => {
                 return (
                   <div
                     key={user._id}
-                    className="card bg-base-200 hover:shadow-lg transition-all duration-300"
+                    className="card bg-black/40 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="card-body p-5 space-y-4">
                       <div className="flex items-center gap-3">
@@ -135,7 +135,7 @@ const HomePage = () => {
                         </span>
                       </div>
 
-                      {user.bio && <p className="text-sm opacity-70">{user.bio}</p>}
+                      {user.bio && <p className="text-sm opacity-70 text-center">{user.bio}</p>}
 
                       {/* Action button */}
                       <button
