@@ -1,2 +1,0 @@
-Server is running on the link:- "https://full-project-b70j.onrender.com/login";
-which is deployed on render web hoster;
