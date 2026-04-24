@@ -47,6 +47,7 @@ const LoginPage = () => {
           {/* ERROR MESSAGE DISPLAY */}
           {error && (
             <div className="alert alert-error mb-4">
+              console.log(error.response);
               <span>{error.response.data.message}</span>
             </div>
           )}
