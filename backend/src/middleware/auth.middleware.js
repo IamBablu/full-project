@@ -5,9 +5,8 @@ export const protectRoute = async (req, res, next) => {
     try {
         // 1. Get token from cookies (should be req.cookies, not res.cookies)
         const token = req.cookies.jwt;
-        
         if (!token) {
-            return res.status(401).json({ message: "Unauthorized - No token provided" });
+            return res.status(431).json({ message: "Unauthorized - No token provided" });
         }
 
         // 2. Verify token
@@ -17,7 +16,7 @@ export const protectRoute = async (req, res, next) => {
         const user = await User.findById(decoded.userId).select("-password");
         
         if (!user) {
-            return res.status(401).json({ message: "Unauthorized - User not found" });
+            return res.status(421).json({ message: "Unauthorized - User not found" });
         }
 
         // 4. Attach user to request
@@ -30,10 +29,10 @@ export const protectRoute = async (req, res, next) => {
         
         // Handle specific JWT errors
         if (error instanceof jwt.JsonWebTokenError) {
-            return res.status(401).json({ message: "Unauthorized - Invalid token" });
+            return res.status(402).json({ message: "Unauthorized - Invalid token" });
         }
         if (error instanceof jwt.TokenExpiredError) {
-            return res.status(401).json({ message: "Unauthorized - Token expired" });
+            return res.status(411).json({ message: "Unauthorized - Token expired" });
         }
         
         res.status(500).json({ message: "Internal Server Error" });

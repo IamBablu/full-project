@@ -3,6 +3,7 @@ import "dotenv/config"
 
 const apiKey = process.env.STEAM_API_KEY
 const apiSecret = process.env.STEAM_API_SECRET
+console.log(apiKey, apiSecret)
 
 if(!apiKey || !apiSecret){
     console.error("Stream api key or secret is missing");
